@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Typing Sites Discord RPC
 // @namespace    http://tampermonkey.net/
-// @version      0.14
+// @version      0.15
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.e-typing.ne.jp/*
@@ -55,31 +55,11 @@ let url__ = location.href
 let LargeImage__ = ""
 let send_interval = 15000
 var send_data_interval
-var blur = false
 var focus_in_interval
 var dicord_send_data = localStorage.getItem("discord_rich_presence_userscript_send_data") ? localStorage.getItem("discord_rich_presence_userscript_send_data") : "true"
 
-function send_localhost(){
-	js__ = '{"Detail":"' + Detail__ + '","State":"' + State__ + '","LargeImage":"' + LargeImage__ + '","url":"' + url__ + '"}'
-		var myJSON = new XMLHttpRequest();
-		myJSON.open("GET","http://127.0.0.1:8843/post?" + js__, true);
-		myJSON.send(null);
-}
-
-document.addEventListener("visibilitychange", function() {
-  if (document.visibilityState === 'hidden' && !blur) {
-	js__ = '{"Detail":"' + Detail__ + '","State":"' + State__ + '","LargeImage":"' + LargeImage__ + '","url":"' + "close" + '"}'
-		var myJSON = new XMLHttpRequest();
-		myJSON.open("GET","http://127.0.0.1:8843/post?" + js__, true);
-		myJSON.send(null);
-  }
-if(document.visibilityState === 'hidden'){
-window.clearInterval(focus_in_interval)
-}
-});
-
 function add_send_data_setting(Element,position){
-Element.insertAdjacentHTML(position, `
+	Element.insertAdjacentHTML(position, `
 <label style="
     display: block;
     margin-bottom: 4px;
@@ -87,29 +67,40 @@ Element.insertAdjacentHTML(position, `
 <input type="checkbox"`+(localStorage.getItem("discord_rich_presence_userscript_send_data") == "false"?"":"checked")+`>
 </input>Discordに打鍵データを表示する</label>`);
 
-document.getElementById("discord_rich_presence_userscript_send_data").addEventListener("change",function(event){
-	localStorage.setItem("discord_rich_presence_userscript_send_data",event.target.checked)
-	dicord_send_data = event.target.checked.toString()
-	if(!event.target.checked){
-		State__ = undefined
-		send_localhost()
-	}
-})
+	document.getElementById("discord_rich_presence_userscript_send_data").addEventListener("change",function(event){
+		localStorage.setItem("discord_rich_presence_userscript_send_data",event.target.checked)
+		dicord_send_data = event.target.checked.toString()
+		if(!event.target.checked){
+			State__ = undefined
+			send_localhost()
+		}
+	})
+}
+
+
+function send_localhost(){
+	console.log("send")
+	js__ = '{"Detail":"' + Detail__ + '","State":"' + State__ + '","LargeImage":"' + LargeImage__ + '","url":"' + url__ + '"}'
+	var myJSON = new XMLHttpRequest();
+	myJSON.open("GET","http://127.0.0.1:8843/post?" + js__, true);
+	myJSON.send(null);
 }
 
 window.addEventListener("blur", function() {
-blur = true
-console.log("blur")
-window.clearInterval(focus_in_interval)
+	console.log("blur")
+	window.clearInterval(focus_in_interval)
+	window.clearInterval(send_data_interval)
 });
 window.addEventListener("focus", function() {
-blur = false
-console.log("focus")
-send_first_data()
+	console.log("focus")
+	send_first_data()
 });
+
+
+
 if(url__.match('https://www.e-typing.ne.jp')){
 	url__ = 'https://www.e-typing.ne.jp'
-function etypingDetailSet(){
+	function etypingDetailSet(){
 		if(event.eventPhase == 2){
 			if(window.parent.pp_descriptions){
 				sessionStorage.setItem("State__", window.parent.pp_descriptions[0]);
@@ -182,36 +173,29 @@ function etypingDetailSet(){
 		Detail__ = document.querySelector(".movietitle h1").firstChild.textContent+(document.querySelector(".movietitle h1").lastElementChild != null ? " | Level: "+document.querySelector(".movietitle h1").lastElementChild.innerText.match(/\d/)[0] : "");
 		State__ = (document.querySelector(".movietitle h1").lastElementChild != null ? "Level: "+document.querySelector(".movietitle h1").lastElementChild.innerText.match(/\d/)[0] : "開始前");
 		function send_type_data(){
-
 			if(document.getElementById("total_time") != null || finished){
 				if(dicord_send_data == "true"){
-				State__ = practice_typing_count +"打鍵 | "+typing_miss_count+"ミス | "+typing_speed+"打/秒 | "+ (document.getElementById("total_time") != null ? document.getElementById("total_time").innerText : "end")
+					State__ = practice_typing_count +"打鍵 | "+typing_miss_count+"ミス | "+typing_speed+"打/秒 | "+ (document.getElementById("total_time") != null ? document.getElementById("total_time").innerText : "end")
 				}else{
 					State__ = (document.getElementById("total_time") != null ? "time: "+document.getElementById("total_time").innerText : "end")
 				}
 				send_localhost()
 			}
 		}
-	send_data_interval = setInterval(send_type_data,5000)
-	window.addEventListener("focus",function(){
 		send_data_interval = setInterval(send_type_data,5000)
-	})
-	window.addEventListener("blur", function() {
-		console.log("blur")
-		if(send_data_interval){
-			window.clearInterval(send_type_data)
-		}
-	});
+		window.addEventListener("focus",function(){
+			send_data_interval = setInterval(send_type_data,5000)
+		})
 	}
 
 }else if(url__.match('type.cgi')){
-url__ = 'type.cgi'
-LargeImage__ = "da"
-add_send_data_setting(document.body.firstElementChild,"beforeend")
-Detail__ = encodeURIComponent(document.title.replace("打鍵トレーナー","").replace(/（|）|\(|\)/g,""))
-if(Detail__ == ""){
-Detail__ = location.href
-}
+	url__ = 'type.cgi'
+	LargeImage__ = "da"
+	add_send_data_setting(document.body.firstElementChild,"beforeend")
+	Detail__ = encodeURIComponent(document.title.replace("打鍵トレーナー","").replace(/（|）|\(|\)/g,""))
+	if(Detail__ == ""){
+		Detail__ = location.href
+	}
 	function daken_interval(){
 		const key_value = document.getElementById("daken")
 		if(dicord_send_data == "true" && key_value){
@@ -224,26 +208,20 @@ Detail__ = location.href
 	window.addEventListener("focus",function(){
 		send_data_interval = setInterval(daken_interval,5000)
 	})
-	window.addEventListener("blur", function() {
-		console.log("blur")
-		if(send_data_interval){
-			window.clearInterval(send_data_interval)
-		}
-	})
 }else if(url__.match('https://typing.tanonews.com')){
 	const mode_change = location.href.match(/\?e/) && document.getElementById("modeChange") != null ? "エンドレスモード":document.getElementById("modeChange").innerText
-		url__ = 'https://typing.tanonews.com'
-		LargeImage__ = "taisoku"
-		Detail__ = "選択中のお題：今月のお題".replace("選択中のお題：","") +" / "+ mode_change
-		State__ = undefined
+	url__ = 'https://typing.tanonews.com'
+	LargeImage__ = "taisoku"
+	Detail__ = "選択中のお題：今月のお題".replace("選択中のお題：","") +" / "+ mode_change
+	State__ = undefined
 	add_send_data_setting(document.getElementsByClassName("div_comment")[0],"afterbegin")
 	document.addEventListener("click",function(event){
-const mode_change = location.href.match(/\?e/) && document.getElementById("modeChange") != null ? "エンドレスモード":document.getElementById("modeChange").innerText
+		const mode_change = location.href.match(/\?e/) && document.getElementById("modeChange") != null ? "エンドレスモード":document.getElementById("modeChange").innerText
 		if(event.target.id == "cwListBtnCurrent"){
 			Detail__ = "選択中のお題：今月のお題".replace("選択中のお題：","")+" / "+ mode_change
 			send_localhost()
 		}else if(event.target.className.match("btnListSet")){
-		Detail__ = document.getElementById("cwListSetCurrent").innerText.replace("選択中のお題：","")+" / "+ mode_change
+			Detail__ = document.getElementById("cwListSetCurrent").innerText.replace("選択中のお題：","")+" / "+ mode_change
 			send_localhost()
 		}else if(event.target.id == "modeChange"){
 			Detail__ = document.getElementById("cwListSetCurrent").innerText.replace("選択中のお題：","").replace("（今月のお題）","")+" / "+ mode_change
@@ -262,22 +240,16 @@ const mode_change = location.href.match(/\?e/) && document.getElementById("modeC
 	window.addEventListener("focus",function(){
 		send_data_interval = setInterval(taisocu_interval,5000)
 	})
-	window.addEventListener("blur", function() {
-		console.log("blur")
-		if(send_data_interval){
-			window.clearInterval(send_data_interval)
-		}
-	});
 
 }else if(url__.match('https://typing.twi1.me')){
 	url__ = 'https://typing.twi1.me'
 	LargeImage__ = "hiyoko"
- var data_name = document.getElementsByClassName("h1Yellow")[0]
- if(!location.href.match("https://typing.twi1.me/game/")){
-	 Detail__ = "選択中"
-	 send_first_data()
-	 return
- }
+	var data_name = document.getElementsByClassName("h1Yellow")[0]
+	if(!location.href.match("https://typing.twi1.me/game/")){
+		Detail__ = "選択中"
+		send_first_data()
+		return
+	}
 	Detail__ = data_name.innerText
 	State__ = "ID: "+location.href.replace("https://typing.twi1.me/game/","")
 }else if(url__.match('https://typingerz.com')){
@@ -474,33 +446,33 @@ const mode_change = location.href.match(/\?e/) && document.getElementById("modeC
 				send_localhost()
 			}
 		})
-return;
+		return;
 	}
 }else if(url__.match('https://typing-training.net')){
 	url__ = 'https://typing-training.net'
 	LargeImage__ = "a"
-if(document.querySelector('[itemtype="http://schema.org/WebPage"]') != null){
-	Detail__ = document.querySelector('[itemtype="http://schema.org/WebPage"]').firstElementChild.textContent
-	State__ = document.querySelector('[itemtype="http://schema.org/WebPage"]').lastChild.textContent
-}
+	if(document.querySelector('[itemtype="http://schema.org/WebPage"]') != null){
+		Detail__ = document.querySelector('[itemtype="http://schema.org/WebPage"]').firstElementChild.textContent
+		State__ = document.querySelector('[itemtype="http://schema.org/WebPage"]').lastChild.textContent
+	}
 }else if(url__.match('https://manabi-gakushu.benesse.ne.jp/gakushu/typing')){
 	url__ = 'https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html'
 	LargeImage__ = "a"
-			if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html"){
-				Detail__ = "日本語編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/homeposition.html"){
-				Detail__ = "ホームポジション　基本編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigonyuryoku.html"){
-				Detail__ = "英語編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/kokugo.html"){
-				Detail__ = "国語問題編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigo.html"){
-				Detail__ = "英語問題編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigokotowaza.html"){
-				Detail__ = "英語ことわざ編"
-			}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/homeposition.html"){
-				Detail__ = "モラル・パソコン用語編"
-			}
+	if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html"){
+		Detail__ = "日本語編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/homeposition.html"){
+		Detail__ = "ホームポジション　基本編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigonyuryoku.html"){
+		Detail__ = "英語編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/kokugo.html"){
+		Detail__ = "国語問題編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigo.html"){
+		Detail__ = "英語問題編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigokotowaza.html"){
+		Detail__ = "英語ことわざ編"
+	}else if(location.href == "https://manabi-gakushu.benesse.ne.jp/gakushu/typing/homeposition.html"){
+		Detail__ = "モラル・パソコン用語編"
+	}
 }else if(url__.match('https://typing.playgram.jp')){
 	url__ = 'https://typing.playgram.jp'
 	LargeImage__ = "playgramtyping"
@@ -546,10 +518,10 @@ if(document.querySelector('[itemtype="http://schema.org/WebPage"]') != null){
 	LargeImage__ = "typingclub"
 	Detail__ = "HOME"
 	let lesson_name = parent.document.documentElement
-if(lesson_name == undefined){
-	send_first_data()
-	return;
-}
+	if(lesson_name == undefined){
+		send_first_data()
+		return;
+	}
 	Detail__ = lesson_name.outerText.split("\n")[0]
 	if(Detail__ == "TypingClub"){
 		Detail__ = "HOME"
@@ -574,7 +546,7 @@ if(lesson_name == undefined){
 	Detail__ = "HOME"
 	State__ = "Language: "
 	if(document.getElementsByClassName("active")[0] != null){
-	Detail__ = document.getElementsByClassName("active")[0].querySelector("strong").innerText
+		Detail__ = document.getElementsByClassName("active")[0].querySelector("strong").innerText
 	}
 	if(document.getElementById("language") != null){
 		State__ += document.getElementById("language").firstElementChild.innerText
@@ -626,33 +598,33 @@ if(lesson_name == undefined){
 	url__ = 'shakyo.io'
 	LargeImage__ = "shakyoio"
 	Detail__ = "ホーム"
-window.addEventListener("load",function(){
-setTimeout(function(){
-	var lesson
+	window.addEventListener("load",function(){
+		setTimeout(function(){
+			var lesson
 
-	if(document.getElementsByClassName("lesson-breadcrumb")[0] != null && document.getElementsByClassName("lesson-breadcrumb")[0].lastElementChild != null){
-		lesson = document.getElementsByClassName("lesson-breadcrumb")[0].lastElementChild
-		Detail__ = (lesson.textContent+"　").replace("++","＋＋")
-		sessionStorage.setItem("choice",Detail__)
-	}else if(document.getElementsByClassName("code-info")[0] != null){
-		Detail__ = sessionStorage.getItem("choice")
-		State__ = document.getElementsByClassName("code-info")[0].firstElementChild.textContent
-	}
-	if(location.href.match("https://shakyo.io/code")){
-		sessionStorage.removeItem("choice")
-		Detail__ = document.getElementsByClassName("code-info-lang")[0] ? document.getElementsByClassName("code-info-lang")[0].innerText : "ホーム"
+			if(document.getElementsByClassName("lesson-breadcrumb")[0] != null && document.getElementsByClassName("lesson-breadcrumb")[0].lastElementChild != null){
+				lesson = document.getElementsByClassName("lesson-breadcrumb")[0].lastElementChild
+				Detail__ = (lesson.textContent+"　").replace("++","＋＋")
+				sessionStorage.setItem("choice",Detail__)
+			}else if(document.getElementsByClassName("code-info")[0] != null){
+				Detail__ = sessionStorage.getItem("choice")
+				State__ = document.getElementsByClassName("code-info")[0].firstElementChild.textContent
+			}
+			if(location.href.match("https://shakyo.io/code")){
+				sessionStorage.removeItem("choice")
+				Detail__ = document.getElementsByClassName("code-info-lang")[0] ? document.getElementsByClassName("code-info-lang")[0].innerText : "ホーム"
 
-	}
-	send_first_data()
-},2500)
-})
-return;
+			}
+			send_first_data()
+		},2500)
+	})
+	return;
 }
 
 
 function send_first_data(){
-send_localhost()
-focus_in_interval = setInterval(send_localhost,send_interval)
+	send_localhost()
+	focus_in_interval = setInterval(send_localhost,15000)
 }
 send_first_data()
 
