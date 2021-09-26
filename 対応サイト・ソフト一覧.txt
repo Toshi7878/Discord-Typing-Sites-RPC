@@ -1,0 +1,85 @@
+//日本語タイピングサイト
+[e-typingローマ・かな] https://www.e-typing.ne.jp
+[myTyping] https://typing.twi1.me
+[タイピンガーZ] https://typingerz.com
+[タイピング速度測定] https://typing.tanonews.com
+[タイピング速度測定 エンドレスモード] https://typing.tanonews.com/?e
+[各種打鍵トレーナー] *type.cgi
+[ごんタイピング] http://gontyping.com
+[ブラウザ版 タイプウェル国語R] https://typewell-in-browser.web.app/
+[Playgramタイピング] https://typing.playgram.jp
+[桃太郎タイピング] https://pokedebi.com/game/momotype
+[百田のタイピング道場] play.mcz-release.com
+[タイピングの品格] https://www.ntv.co.jp/haken2020/special
+[宇宙打] https://sorauchi.com/unity
+[毎パソWebApp] https://secure.pasoken.net/maipaso/app
+[P検タイピング] https://manabi-gakushu.benesse.ne.jp/gakushu/typing
+[加藤純一の寿司タイピング] https://game.nicovideo.jp/atsumaru/games/gm15182
+[名取さなのつよつよタイピング] https://1st.natorisana.love/game/zuho_cpp | https://ueken0307.github.io/natori-typing
+[たじさくそうまごウェル] http://sintyaku.pa.land.to/daken2/tajisakumagosou.htm
+[たじたじウェル] http://sintyaku.pa.land.to/daken2/tajitaji.htm
+[毎日5問のタイピングトレーニング] https://typing-training.net
+[TypingWar] http://typingwar.trap.games
+
+
+//音楽タイピングサイト
+[TYPOLY PRIDE] https://typoly.idolypride.jp/game
+[Typing Tube] https://typing-tube.net
+[Music Typing] https://music-typing.net
+[YouTyping] http://hakatashi.github.io/YouTyping/sample/index.html
+
+
+//Neutralタイピング
+[寿司打] http://typingx0.net/sushida/play
+[PopTyping] http://typingx0.net/pop
+[easyタイピング] http://typingx0.net/easy
+[お魚タイピング] http://typingx0.net/osakana
+[県名当てタイピング] http://typingx0.net/map/
+[県庁所在地当てタイピング] http://typingx0.net/map_c
+[A-Zタイピング] http://typingx0.net/az
+
+//英語・多言語タイピングサイト
+[TypingClub] https://www.typingclub.com
+[e-typing英語] https://www.e-typing.ne.jp
+[TyperX] https://www.typrx.com
+[ZType] https://zty.pe
+[10FastFingers] https://10fastfingers.com
+[Training with Taki version - Intersteno] https://www.intersteno.org/intersteno-internet-contests/training-with-taki-version
+
+//プログラミング タイピングサイト
+[Typing.io] https://typing.io
+[shakyo.io] https://shakyo.io
+[SpeedCoder] https://www.speedcoder.net
+
+
+//タイピングソフト
+Weather Typing
+タイプウェル国語Ｒ
+タイプウェル国語Ｋ
+タイプウェルオリジナル
+タイプウェル憲法
+タイプウェルＦＴ
+limitkpm
+TypeLighter
+歌謡タイピング劇場
+ニコ生タイピング
+IshoTyping
+美佳のタイプトレーナー
+Ozawa-Ken
+
+
+
+対応タイピングサイト 41種
+対応タイピングソフト 13種
+
+
+PreMiD対応サイトについて
+Keymash
+KickAssFingers
+Monkeytype
+Nitro Type
+Typer.io
+Typeracer
+
+以上6つのサイトはPreMiD(https://premid.app/)で対応されているのでDiscord-Typing-Sites-RPCでは非対応になります。
+PreMiD拡張機能を導入することでPreMiD Store(https://premid.app/store)からRich Presenceデータをインストールできます。(PreMiD Store検索で[typing]と検索すると出てきます。)

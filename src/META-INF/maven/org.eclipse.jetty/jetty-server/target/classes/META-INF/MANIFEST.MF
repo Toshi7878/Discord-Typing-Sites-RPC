@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.jetty.server
+Bnd-LastModified: 1631709925932
+Build-Jdk: 16.0.1
+Built-By: Toshi
+Bundle-Classpath: .
+Bundle-Copyright: Copyright (c) 2008-2020 Mort Bay Consulting Pty Ltd an
+ d others.
+Bundle-Description: Jetty module for Jetty :: Server Core
+Bundle-DocURL: http://www.eclipse.org/jetty
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0, http://www.e
+ clipse.org/org/documents/epl-v10.php
+Bundle-ManifestVersion: 2
+Bundle-Name: Jetty :: Server Core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-SymbolicName: org.eclipse.jetty.server
+Bundle-Vendor: Eclipse Jetty Project
+Bundle-Version: 9.4.26.v20200117
+Created-By: Apache Maven Bundle Plugin
+Implementation-Vendor: Eclipse Jetty Project
+Implementation-Version: 9.4.26.v20200117
+Originally-Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-3.5.0.201709291849
+url: http://www.eclipse.org/jetty

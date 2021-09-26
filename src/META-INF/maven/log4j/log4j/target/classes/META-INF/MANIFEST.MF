@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-0.0.357
+Bnd-LastModified: 1630334044477
+Bundle-Version: 1.2.17
+Bundle-SymbolicName: log4j
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-DocURL: http://logging.apache.org/log4j/1.2
+Bundle-Description: Apache Log4j 1.2
+Bundle-Vendor: Apache Software Foundation
+Bundle-Name: Apache Log4j
+Built-By: Toshi
+Build-Jdk: 16.0.1
+
+Name: org.apache.log4j
+Implementation-Vendor: "Apache Software Foundation"
+Implementation-Title: log4j
+DynamicImport-Package: *
+Implementation-Version: 1.2.17
+

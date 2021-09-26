@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+arguments=-Porg.gradle.java.installations.paths\=C:/Users/Toshi/Desktop/pleiades/java/6,C:/Users/Toshi/Desktop/pleiades/java/7,C:/Users/Toshi/Desktop/pleiades/java/8,C:/Users/Toshi/Desktop/pleiades/java/11,C:/Users/Toshi/Desktop/pleiades/java/16
+auto.sync=true
+### Mac はビルドスクリプトでパス書き換え
+java.home=C:/Users/Toshi/Desktop/pleiades/java/11

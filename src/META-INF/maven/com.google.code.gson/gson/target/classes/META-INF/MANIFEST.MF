@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Built-By: Toshi
+Build-Jdk: 16.0.1
+Created-By: 16.0.1 (AdoptOpenJDK)
+Bnd-LastModified: 1631709920418
+Bundle-ManifestVersion: 2
+Bundle-Name: gson
+Bundle-SymbolicName: gson
+Bundle-Version: 2.8.5
+Tool: Bnd-3.1.0.201512181341
+

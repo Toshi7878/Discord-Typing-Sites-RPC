@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1630334043419
+Build-Jdk: 16.0.1
+Built-By: Toshi
+Bundle-Description: jOOR is a recursive acronym that stands for jOOR Obj
+ ect Oriented Reflection. It is a simple wrapper for the java.lang.refle
+ ct package.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-ManifestVersion: 2
+Bundle-Name: jOOR
+Bundle-SymbolicName: org.jooq.joor-java-8
+Bundle-Version: 0.9.7
+Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-3.5.0.201709291849
