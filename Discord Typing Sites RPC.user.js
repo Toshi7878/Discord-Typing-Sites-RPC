@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Typing Sites Discord RPC
 // @namespace    http://tampermonkey.net/
-// @version      0.13
+// @version      0.14
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.e-typing.ne.jp/*
@@ -53,7 +53,7 @@ var Detail__
 let State__
 let url__ = location.href
 let LargeImage__ = ""
-let send_interval = 150000
+let send_interval = 15000
 var send_data_interval
 var blur = false
 var focus_in_interval
