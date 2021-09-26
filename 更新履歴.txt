@@ -1,5 +1,5 @@
 【Discord Typing Sites RPC1.1.exe】 2021/09/26
-【Discord Typing Sites RPC.jar ver 1.1】 2021/09/26
+【Discord Typing Sites RPC Jar ver1.1】
 ・タイピングソフト表示時の経過時間が30秒以上進まない不具合を修正。
 ・タイピングサイト・ソフトの表示が閉じるスパンを60秒に変更
 
