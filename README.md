@@ -17,7 +17,7 @@ Discordにプレイ中のタイピングサイト・ソフトをリアルタイ�
 
 - 3: [Discord Typing Sites RPC.user.js](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC.user.js) をインストールします。
 
-- 4: PC のエクスプローラーのアドレス欄に `shell:startup` と入力し表示されたフォルダ内に [Discord Typing Sites RPC.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%201.1.exe) をダウンロードしファイルをコピーします。
+- 4: PC のエクスプローラーのアドレス欄に `shell:startup` と入力し表示されたフォルダ内に [Discord Typing Sites RPC.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC1.1.exe) をダウンロードしファイルをコピーします。
 
 
 
@@ -71,7 +71,7 @@ Discord Typing Sites RPC.exe実行時に上の画像の表示が出てしまう�
 先程DLしたDiscord Typing Sites RPC.exeは使用しないので削除して頂いて大丈夫です。
 
 
-- 1: [Discord Typing Sites RPC Jar.zip](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%20Jar%201.1.zip)をダウンロードします。<br>
+- 1: [Discord Typing Sites RPC Jar.zip](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%20Jar%20ver1.1.zip)をダウンロードします。<br>
 
 - 2: 解凍して出てきたDiscord Typing Sites RPC Jarフォルダを任意のフォルダに配置します。(例: タイピングツール置き場 や C:\Program Filesフォルダ等の好きなフォルダに配置)
 
