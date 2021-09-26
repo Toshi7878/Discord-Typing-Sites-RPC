@@ -79,11 +79,13 @@ function add_send_data_setting(Element,position){
 
 
 function send_localhost(){
+if(document.hasFocus()){
 	console.log("send")
 	js__ = '{"Detail":"' + Detail__ + '","State":"' + State__ + '","LargeImage":"' + LargeImage__ + '","url":"' + url__ + '"}'
 	var myJSON = new XMLHttpRequest();
 	myJSON.open("GET","http://127.0.0.1:8843/post?" + js__, true);
 	myJSON.send(null);
+}
 }
 
 window.addEventListener("blur", function() {
