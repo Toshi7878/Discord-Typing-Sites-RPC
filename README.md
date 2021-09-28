@@ -48,19 +48,6 @@ Discordにプレイ中のタイピングサイト・ソフトをリアルタイ�
 PreMiD拡張機能を導入することで[PreMiD Store](https://premid.app/store)からRich Presenceデータをインストールできます。(PreMiD Store検索で[typing]と検索すると出てきます。)
 
 
-# アンインストール方法
-- 1: Shift+Ctrl+Escキーを押してタスクマネージャーを起動します。
-
-- 2: プロセス一覧にある「Java(TM) Platform SE binary」(javaw.exe)を終了させます。
-<img src="https://dl.easyuploader.cloud/20210912151626_376d3166.png" height="40%" width="40%">
-
-- 3: PC のエクスプローラーのアドレス欄に `shell:startup` と入力しフォルダ内の Discord Typing Sites RPC.exe を削除します。
-
-- 4: ブラウザのTampermonkeyメニューを開き、Discord Typing Sites RPCの[>]マークをクリックすると削除が出てくるので、削除をクリックしてDiscord Typing Sites RPC.user.jsを削除します。
-<img src="https://dl.easyuploader.cloud/20210912151919_796b564f.png" height="30%" width="30%">
-
-
-
 
 # このアプリはお使いのPCでは実行できませんが出てしまう場合の導入方法
 <img src="https://dl.easyuploader.cloud/20210925213602_4c6b7558.png" height="40%" width="40%">
