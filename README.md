@@ -17,7 +17,7 @@ Discordにプレイ中のタイピングサイト・ソフトをリアルタイ�
 
 - 3: [Discord Typing Sites RPC.user.js](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC.user.js) をインストールします。
 
-- 4:  [Discord Typing Sites RPC ver1.1 Installer.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%20ver%201.1%20Installer.exe) をダウンロード後、exeファイルを右クリック→プロパティを開き、[許可する]のチェックボックスを有効後、適用ボタンをクリックしてプロパティを閉じます。。
+- 4:  [Discord Typing Sites RPC ver1.1 Installer.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%20ver%201.1%20Installer.exe) をダウンロード後、exeファイルを右クリック→プロパティを開き、[許可する]のチェックボックスを有効後、適用ボタンをクリックしてプロパティを閉じます。
 
 <img src="https://dl.easyuploader.cloud/20210912151532_515a3736.png" height="30%" width="30%">
 
