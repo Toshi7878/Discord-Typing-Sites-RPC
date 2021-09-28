@@ -50,7 +50,7 @@ PreMiD拡張機能を導入することで[PreMiD Store](https://premid.app/stor
 # 初代バージョンのアンインストール方法
 - 1: Shift+Ctrl+Escキーを押してタスク マネージャーを起動します。
 
-- 2: プロセス一覧から[Java(TM) Platform SE binary]を終了させます。
+- 2: プロセス一覧から[Java(TM) Platform SE binary]を終了します。
 <img src="https://dl.easyuploader.cloud/20210912151626_376d3166.png" height="40%" width="40%">
 
 - 3: PC のエクスプローラーのアドレス欄に `shell:startup` と入力し表示されたフォルダ内の [Discord Typing Sites RPC.exe] を削除します。
