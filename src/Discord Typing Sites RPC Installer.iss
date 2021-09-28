@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\Toshi\Desktop
 OutputBaseFilename=Discord Typing Sites RPC Installer
-SetupIconFile=C:\Users\Toshi\Desktop\discord icon free.ico
+SetupIconFile=C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\discord icon free.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -39,20 +39,22 @@ Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\{#MyAppExeNa
 Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\Discord-Typing-Sites-RPC.jar"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\readme.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\çXêVóöó.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\exit.bat";  DestDir: {tmp}; Flags: dontcopy
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\exit.bat";  DestDir: {app}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{userstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: startup
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: shellexec postinstall skipifsilent
+[UninstallRun]
+Filename: "{app}\exit.bat"; Flags: runascurrentuser waituntilterminated runhidden; RunOnceId: "Uninstall"
 [code]
 function PrepareToInstall(var NeedsRestart: Boolean): String;
 var
    ResultCode: integer;
 begin
 ExtractTemporaryFile('exit.bat');
-   Exec(ExpandConstant('{tmp}\exit.bat'), '', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
+   Exec(ExpandConstant('{app}\exit.bat'), '', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
 end;
 procedure CurStepChanged(CurStep: TSetupStep);
 var
