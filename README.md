@@ -17,13 +17,11 @@ Discordにプレイ中のタイピングサイト・ソフトをリアルタイ�
 
 - 3: [Discord Typing Sites RPC.user.js](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC.user.js) をインストールします。
 
-- 4: PC のエクスプローラーのアドレス欄に `shell:startup` と入力し表示されたフォルダ内に [Discord Typing Sites RPC1.1.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC1.1.exe) をダウンロードしファイルをコピーします。
+- 4:  [Discord Typing Sites RPC ver1.1 Installer.exe](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC%20ver%201.1%20Installer.exe) をダウンロード後、exeファイルを右クリック→プロパティを開き、[許可する]のチェックボックスを有効後、適用ボタンをクリックしてプロパティを閉じます。。
 
-
-
-- 5:Discord Typing Sites RPC1.1.exeを右クリック→プロパティを開き、[許可する]のチェックボックスを有効後、適用ボタンをクリックしてプロパティを閉じます。
 <img src="https://dl.easyuploader.cloud/20210912151532_515a3736.png" height="30%" width="30%">
-- 6: (初回のみ!!) 先程フォルダ内にコピーしたexeファイルをダブルクリックして起動します。(次の起動時から自動的に起動します。)<br><br>
+
+- 6: Discord Typing Sites RPC ver1.1 Installer.exeファイルを起動しプログラムをインストールします。<br><br>
 
 
 ※「このアプリはお使いのPCでは実行できません」等の表示がでてしまう方は[こちら](https://github.com/Toshi7878/Discord-Typing-Sites-RPC/blob/main/README.md#このアプリはお使いのPCでは実行できませんが出てしまう場合の導入方法)をお試しください。
