@@ -66,6 +66,7 @@ TypeLighter
 IshoTyping
 美佳のタイプトレーナー
 Ozawa-Ken
+UTyping
 
 
 
