@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Typing Sites Discord RPC
 // @namespace    http://tampermonkey.net/
-// @version      0.15
+// @version      1.1
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.e-typing.ne.jp/*
