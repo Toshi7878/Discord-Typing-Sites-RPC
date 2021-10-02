@@ -43,9 +43,11 @@
 /* 45 */     } else if (Native.toString(arrayOfChar).equals("The Typing of the Dead")) {
 /* 46 */       main.connect("undefined", "undefined", "undefined", Native.toString(arrayOfChar));
 /* 47 */     } else if (Native.toString(arrayOfChar).startsWith("美佳")) {
-/* 48 */       main.connect(Native.toString(arrayOfChar).replace("美佳", ""), "undefined", "undefined", "美佳のタイプトレーナー");
+/* 48 */       main.connect(Native.toString(arrayOfChar), "undefined", "undefined", "美佳のタイプトレーナー");
 /* 49 */     } else if (Native.toString(arrayOfChar).startsWith("IshoTyping 1.3.1")) {
 /* 50 */       main.connect("undefined", "undefined", "ishotyping", "IshoTyping");
+/*    */     }  else if (Native.toString(arrayOfChar).equals("UTyping")) {
+/* 50 */       main.connect("undefined", "undefined", "utyping", "UTyping");
 /*    */     } 
 /*    */   }
 /*    */ }

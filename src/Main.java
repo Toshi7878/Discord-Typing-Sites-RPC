@@ -203,6 +203,8 @@ if(paramUrl.equals("close") && this.first){
   this.UpdateClientID = 889167712847274005L;
 }else if(paramUrl.equals("Ozawa-Ken")){
   this.UpdateClientID = 889175028598439947L;
+}else if(paramUrl.equals("UTyping")){
+  this.UpdateClientID = 893865966939807774L;
 }
     if(this.setClientID != 1 && this.setClientID != this.UpdateClientID){
       this.ipcClient.close();

@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\Toshi\Desktop
 OutputBaseFilename=Discord Typing Sites RPC Installer
-SetupIconFile=C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\discord icon free.ico
+SetupIconFile=C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\discord icon free.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -35,11 +35,11 @@ Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl"
 [Tasks]
 Name: startup; Description: "{cm:AutoStartProgramGroupDescription}"; GroupDescription: "{cm:AdditionalIcons}";
 [Files]
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\Discord-Typing-Sites-RPC.jar"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\更新履歴.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar ver1.1\exit.bat";  DestDir: {app}; Flags: ignoreversion
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\Discord-Typing-Sites-RPC.jar"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\更新履歴.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Toshi\Desktop\Discord Typing Sites RPC Jar\exit.bat";  DestDir: {app}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -55,13 +55,4 @@ var
 begin
 ExtractTemporaryFile('exit.bat');
    Exec(ExpandConstant('{app}\exit.bat'), '', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
-end;
-procedure CurStepChanged(CurStep: TSetupStep);
-var
-    ErrCode: integer;
-begin
-    if (CurStep=ssDone) then
-    begin
-        ShellExec('open', 'https://github.com/Toshi7878/Discord-Typing-Sites-RPC/raw/main/Discord%20Typing%20Sites%20RPC.user.js', '', '', SW_SHOW, ewNoWait, ErrCode);
-    end;
 end;
